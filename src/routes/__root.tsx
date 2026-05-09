@@ -76,11 +76,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
       { name: "author", content: "FluidProps" },
       { name: "theme-color", content: "#1f4f88" },
-      { property: "og:title", content: "FluidProps — CoolProp in your browser" },
-      { property: "og:description", content: "All physical properties of a fluid from two state quantities, powered by CoolProp WebAssembly." },
+      { property: "og:title", content: "FluidProps — CoolProp thermodynamic property calculator" },
+      { property: "og:description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "FluidProps — CoolProp thermodynamic property calculator" },
+      { name: "twitter:description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4cbeb429-6db3-4865-a0e2-f84e528ab8c7/id-preview-e0e733ea--70f0736d-9075-48f6-b34d-7d97d229d30f.lovable.app-1778331171881.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4cbeb429-6db3-4865-a0e2-f84e528ab8c7/id-preview-e0e733ea--70f0736d-9075-48f6-b34d-7d97d229d30f.lovable.app-1778331171881.png" },
     ],
     links: [
       {
