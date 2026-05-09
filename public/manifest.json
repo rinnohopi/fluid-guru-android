@@ -1,0 +1,14 @@
+{
+  "name": "FluidProps — CoolProp Calculator",
+  "short_name": "FluidProps",
+  "description": "Thermodynamic properties of any CoolProp fluid from two state variables, plus humid air.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1f4f88",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
