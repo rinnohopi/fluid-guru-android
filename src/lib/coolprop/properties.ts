@@ -191,7 +191,13 @@ export const HUMID_AIR_OUTPUTS: PropertyDef[] = [
   { key: "Z", label: "Compressibility factor", unit: "—", group: "Derived" },
 ];
 
-export const HUMID_AIR_INPUTS = [
+export interface HumidAirInput {
+  key: string;
+  label: string;
+  unit: string;
+  placeholder?: string;
+}
+export const HUMID_AIR_INPUTS: HumidAirInput[] = [
   { key: "T", label: "Dry-bulb temperature", unit: "K", placeholder: "298.15" },
   { key: "P", label: "Pressure", unit: "Pa", placeholder: "101325" },
   { key: "R", label: "Relative humidity (0–1)", unit: "—", placeholder: "0.5" },
@@ -201,4 +207,4 @@ export const HUMID_AIR_INPUTS = [
   { key: "Hda", label: "Enthalpy (per kg dry air)", unit: "J/kg_da" },
   { key: "Sda", label: "Entropy (per kg dry air)", unit: "J/(kg_da·K)" },
   { key: "Vda", label: "Specific volume (per kg dry air)", unit: "m³/kg_da" },
-] as const;
+];
