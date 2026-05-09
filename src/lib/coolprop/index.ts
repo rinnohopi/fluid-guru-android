@@ -21,7 +21,6 @@ export function loadCoolProp(): Promise<CoolPropModule> {
   if (instance) return Promise.resolve(instance);
   if (pending) return pending;
   pending = Module({
-    locateFile: (path: string) => `/wasm/${path}`,
     print: () => {},
     printErr: () => {},
   }).then((m: CoolPropModule) => {
