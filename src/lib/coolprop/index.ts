@@ -1,8 +1,8 @@
 // CoolProp WASM loader (browser-only)
 // Loads the vendored emscripten glue and points it at /wasm/coolprop.wasm
 
-// @ts-expect-error - vendored emscripten glue has no types of its own
-import Module from "./coolprop.js";
+import ModuleFactory from "./coolprop.js";
+const Module = ModuleFactory as unknown as (opts?: Record<string, unknown>) => Promise<CoolPropModule>;
 
 export interface CoolPropModule {
   PropsSI(output: string, n1: string, v1: number, n2: string, v2: number, fluid: string): number;
