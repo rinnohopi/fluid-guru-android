@@ -4,11 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -42,9 +38,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -68,53 +62,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FluidProps — CoolProp thermodynamic property calculator" },
-      { name: "description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
-      { name: "author", content: "FluidProps" },
-      { name: "theme-color", content: "#1f4f88" },
-      { property: "og:title", content: "FluidProps — CoolProp thermodynamic property calculator" },
-      { property: "og:description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "FluidProps — CoolProp thermodynamic property calculator" },
-      { name: "twitter:description", content: "Compute physical properties of any CoolProp fluid from two state variables (T,P,Q,H,S,…) plus humid air (HAPropsSI). Runs fully in your browser." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4cbeb429-6db3-4865-a0e2-f84e528ab8c7/id-preview-e0e733ea--70f0736d-9075-48f6-b34d-7d97d229d30f.lovable.app-1778331171881.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4cbeb429-6db3-4865-a0e2-f84e528ab8c7/id-preview-e0e733ea--70f0736d-9075-48f6-b34d-7d97d229d30f.lovable.app-1778331171881.png" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "manifest", href: "/manifest.json" },
-      { rel: "icon", href: "/icon.svg", type: "image/svg+xml" },
-      { rel: "apple-touch-icon", href: "/icon.svg" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
